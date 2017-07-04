@@ -20,7 +20,7 @@ public class UserController {
     UserService userService;
 
     @ApiOperation(value = "获取用户列表", notes = "")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<User> list() {
         return userService.getList();
     }

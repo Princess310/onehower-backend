@@ -1,7 +1,5 @@
 package com.onehower.entity;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.time.LocalDateTime;
 
 public class User {

@@ -14,6 +14,13 @@
         <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
         <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
 
+        <logger name="java.sql.PreparedStatement" level="debug" additivity="true">
+            <AppenderRef ref="Console"/>
+        </logger>
+        <logger name="com.onehower.mapper" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
+        </logger>
+
         <Root level="info">
             <AppenderRef ref="Console"/>
         </Root>
