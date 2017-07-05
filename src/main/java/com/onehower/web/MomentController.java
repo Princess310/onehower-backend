@@ -25,13 +25,13 @@ public class MomentController {
 
     @ApiOperation(value = "获取动态详情", notes = "")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Moment getMoment(@ModelAttribute Long id) {
+    public Moment getMoment(@PathVariable Long id) {
         return momentService.getMoment(id);
     }
 
     @ApiOperation(value="创建动态", notes="根据Moment对象创建动态")
     @ApiImplicitParam(name = "moment", value = "动态详细实体moment", required = true, dataType = "Moment")
-    @RequestMapping(value="", method=RequestMethod.POST)
+    @RequestMapping(value="/add", method=RequestMethod.POST)
     public String addMoment(@RequestBody Moment moment) {
         momentService.addMoment(moment);
         return "success";

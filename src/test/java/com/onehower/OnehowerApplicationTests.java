@@ -1,6 +1,10 @@
 package com.onehower;
 
+import com.onehower.entity.Life;
+import com.onehower.entity.Message;
 import com.onehower.entity.Moment;
+import com.onehower.service.LifeService;
+import com.onehower.service.MessageService;
 import com.onehower.service.MomentService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,9 +12,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.net.Inet4Address;
+import java.net.InetAddress;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,6 +29,12 @@ public class OnehowerApplicationTests {
 
 	@Autowired
 	MomentService momentService;
+
+	@Autowired
+	MessageService messageService;
+
+	@Autowired
+	LifeService lifeService;
 
 	@Test
 	public void testLogger() {
@@ -57,6 +69,50 @@ public class OnehowerApplicationTests {
 		logger.info("查询结果：" + moment1);
 
 		momentService.deleteMoment(Long.parseLong("1"));
+	}
 
-}
+	@Test
+	public void testMessage() {
+		String username = "test username";
+		String email = "test@email.com";
+		String avatar = "test avatar link";
+		String content = "test content";
+		String ip = "127.0.0.1";
+
+		Message message = new Message(username, email, avatar, content, ip);
+
+		Long id = messageService.addMessage(message);
+
+		if (id > 0) {
+			logger.info("插入成功: " + message);
+		}
+
+		Message message1 = messageService.getMessage(Long.parseLong("1"));
+		logger.info("查询结果：" + message1);
+
+		messageService.deleteMessage(Long.parseLong("1"));
+	}
+
+	@Test
+	public void testLife() {
+		String title = "test title";
+		String breif = "test breif";
+		String content = "test content";
+		String pictures = "test pictures";
+		String audio = "test audio";
+		String vedio = "test vedio";
+
+		Life life = new Life(title, breif, content, pictures, audio, vedio);
+
+		Long id = lifeService.addLife(life);
+
+		if (id > 0) {
+			logger.info("插入成功: " + life);
+		}
+
+		Life life1 = lifeService.getLife(Long.parseLong("1"));
+		logger.info("查询结果：" + life1);
+
+		lifeService.deleteLife(Long.parseLong("1"));
+	}
 }

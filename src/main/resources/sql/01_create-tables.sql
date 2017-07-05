@@ -57,10 +57,12 @@ CREATE TABLE "message"
 	id bigserial NOT NULL,
 	username character varying(128),
 	email character varying(128),
+	avatar character varying(256),
 	content text,
 	ip inet,
 	"ctime" timestamp without time zone,
 	"utime" timestamp without time zone,
 	CONSTRAINT message_pkey PRIMARY KEY (id)
 );
+create index on "message" (username);
 -- --------- /message --------- --
