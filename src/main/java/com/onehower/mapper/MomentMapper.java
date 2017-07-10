@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface MomentMapper {
 
-    @Select("SELECT * FROM \"moment\"")
+    @Select("SELECT id, type, content, pictures, audio, vedio, tags, ctime, utime FROM \"moment\" order by ctime desc")
     List<Moment> getList();
 
     @Select("SELECT * FROM \"moment\" WHERE id=#{id}")
