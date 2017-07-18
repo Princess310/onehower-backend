@@ -22,10 +22,12 @@ public class MessageService {
         return messageMapper.findById(id);
     }
 
-    public Long addMessage(Message message) {
+    public Message addMessage(Message message) {
         message.setCtime(LocalDateTime.now());
         message.setUtime(LocalDateTime.now());
-        return messageMapper.insert(message);
+        messageMapper.insert(message);
+
+        return message;
     }
 
     public void deleteMessage(Long id) {

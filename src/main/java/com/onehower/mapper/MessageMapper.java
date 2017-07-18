@@ -17,6 +17,7 @@ public interface MessageMapper {
     @Insert("INSERT INTO message (username, email, avatar, content, ip, ctime, utime)" +
             "VALUES (#{message.username}, #{message.email}, #{message.avatar}, #{message.content}, #{message.ip}::INET, " +
             "#{message.ctime}, #{message.utime})")
+    @Options(useGeneratedKeys = true, keyProperty = "message.id")
     Long insert(@Param("message") Message message);
 
     @Delete("DELETE FROM \"message\" WHERE id = #{id}")

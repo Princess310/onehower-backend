@@ -31,9 +31,8 @@ public class MessageController {
     @ApiOperation(value="创建留言", notes="根据Message对象创建留言")
     @ApiImplicitParam(name = "message", value = "留言详细实体Life", required = true, dataType = "Message")
     @RequestMapping(value="/add", method=RequestMethod.POST)
-    public String addMessage(@RequestBody Message message) {
-        messageService.addMessage(message);
-        return "success";
+    public Message addMessage(@RequestBody Message message) {
+        return messageService.addMessage(message);
     }
 
     @ApiOperation(value = "删除留言", notes = "")
