@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface MessageMapper {
 
-    @Select("SELECT * FROM \"message\"")
+    @Select("SELECT * FROM \"message\" order by ctime desc")
     List<Message> getList();
 
     @Select("SELECT * FROM \"message\" WHERE id=#{id}")
