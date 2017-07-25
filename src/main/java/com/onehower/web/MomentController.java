@@ -3,7 +3,6 @@ package com.onehower.web;
 import com.onehower.entity.Moment;
 import com.onehower.service.MomentService;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

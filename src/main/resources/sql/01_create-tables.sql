@@ -66,3 +66,18 @@ CREATE TABLE "message"
 );
 create index on "message" (username);
 -- --------- /message --------- --
+
+-- --------- song --------- --
+CREATE TABLE "song"
+(
+	id bigserial NOT NULL,
+	name character varying(256),
+	audio character varying(256),
+	lyric character varying(256),
+	thumbnail character varying(256),
+	"ctime" timestamp without time zone,
+	"utime" timestamp without time zone,
+	CONSTRAINT song_pkey PRIMARY KEY (id)
+);
+create index on "song" (audio);
+-- --------- /song --------- --
