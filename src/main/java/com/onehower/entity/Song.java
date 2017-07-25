@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Song {
     private Long id;
     private String name;
+    private String singer;
     private String audio;
     private String lyric;
     private String thumbnail;
@@ -14,16 +15,18 @@ public class Song {
     public Song() {
     }
 
-    public Song(String name, String audio, String lyric, String thumbnail) {
+    public Song(String name, String singer, String audio, String lyric, String thumbnail) {
         this.name = name;
+        this.singer = singer;
         this.audio = audio;
         this.lyric = lyric;
         this.thumbnail = thumbnail;
     }
 
-    public Song(Long id, String name, String audio, String lyric, String thumbnail, LocalDateTime ctime, LocalDateTime utime) {
+    public Song(Long id, String name, String singer, String audio, String lyric, String thumbnail, LocalDateTime ctime, LocalDateTime utime) {
         this.id = id;
         this.name = name;
+        this.singer = singer;
         this.audio = audio;
         this.lyric = lyric;
         this.thumbnail = thumbnail;
@@ -45,6 +48,14 @@ public class Song {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSinger() {
+        return singer;
+    }
+
+    public void setSinger(String singer) {
+        this.singer = singer;
     }
 
     public String getAudio() {

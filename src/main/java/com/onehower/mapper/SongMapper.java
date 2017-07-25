@@ -14,8 +14,8 @@ public interface SongMapper {
     @Select("SELECT * FROM \"song\" WHERE id=#{id}")
     Song findById(@Param("id") Long id);
 
-    @Insert("INSERT INTO song (name, audio, lyric, thumbnail, ctime, utime)" +
-            "VALUES (#{song.name}, #{song.audio}, #{song.lyric}, #{song.thumbnail}, " +
+    @Insert("INSERT INTO song (name, singer, audio, lyric, thumbnail, ctime, utime)" +
+            "VALUES (#{song.name}, #{song.singer}, #{song.audio}, #{song.lyric}, #{song.thumbnail}, " +
             "#{song.ctime}, #{song.utime})")
     @Options(useGeneratedKeys = true, keyProperty = "song.id")
     Long insert(@Param("song") Song song);
@@ -25,6 +25,7 @@ public interface SongMapper {
 
     @Update("UPDATE \"song\" SET " +
             "name=#{song.name}, " +
+            "singer = #{song.singer}, " +
             "audio = #{song.audio}, " +
             "lyric = #{song.lyric}, " +
             "thumbnail = #{song.thumbnail}, " +

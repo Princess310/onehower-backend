@@ -72,6 +72,7 @@ CREATE TABLE "song"
 (
 	id bigserial NOT NULL,
 	name character varying(256),
+	singer character varying(128),
 	audio character varying(256),
 	lyric character varying(256),
 	thumbnail character varying(256),
